@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"bg.softuni.MobLeLeLe.web","l":"HomeController"},{"p":"bg.softuni.MobLeLeLe","l":"MobLeLeLeApplication"}];updateSearchResults();

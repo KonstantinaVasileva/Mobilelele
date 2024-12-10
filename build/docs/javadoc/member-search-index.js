@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"bg.softuni.MobLeLeLe.web","c":"HomeController","l":"HomeController()","u":"%3Cinit%3E()"},{"p":"bg.softuni.MobLeLeLe","c":"MobLeLeLeApplication","l":"main(String[])","u":"main(java.lang.String[])"},{"p":"bg.softuni.MobLeLeLe","c":"MobLeLeLeApplication","l":"MobLeLeLeApplication()","u":"%3Cinit%3E()"}];updateSearchResults();
