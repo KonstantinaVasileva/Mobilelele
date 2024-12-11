@@ -5,3 +5,19 @@ spring:
     check-template: true
     cache: false
     prefix: file:./src/main/resources/templates/
+datasource:
+  url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/mobilelele?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+  username: ${MYSQL_USER:root}
+  password: ${MYSQL_PASSWORD:123456789}
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+  sql:
+    init:
+      mode: never
+

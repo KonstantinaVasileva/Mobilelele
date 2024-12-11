@@ -5,3 +5,43 @@ spring:
     check-template: true
     cache: false
     prefix: file:./src/main/resources/templates/
+datasource:
+  url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/mobilelele?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+  username: ${MYSQL_USER:root}
+  password: ${MYSQL_PASSWORD:123456789}
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+  sql:
+    init:
+      mode: never
+
+      kafka:
+        bootstrap-servers: localhost:9092
+        producer:
+          key-serializer: org.apache.kafka.common.serialization.StringSerializer
+          value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+        mvc:
+          hiddenmethod:
+            filter:
+              enabled: true
+
+      forex:
+        api:
+          key: ${FOREX_API_KEY:test}
+          url: "https://openexchangerates.org/api/latest.json?app_id={app_id}"
+          base: "USD"
+        init-ex-rates: ${INIT_EX_RATES:false}
+
+      offers:
+        api:
+          baseUrl: "${OFFERS_BASE_URL:http://localhost:8081}"
+
+      jwt:
+        secret: ${JWT_KEY:WSdv1kEE1tCT1a8ihRSqfwMNzlPBq8IWSdv1kEE1tCT1a8ihRSqfwMNzlPBq8IWSdv1kEE1tCT1a8ihRSqfwMNzlPBq8I}
+        expiration: ${JWT_EXPIRATION:60000}
