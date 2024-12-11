@@ -9,11 +9,12 @@ import java.time.LocalDateTime;
 @Table(name = "models")
 public class Model {
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     private String name;
 
-    @Enumerated( jakarta.persistence.EnumType.STRING)
+    @Enumerated(jakarta.persistence.EnumType.STRING)
     private Category category;
 
     @Column(name = "image_url")
@@ -38,12 +39,15 @@ public class Model {
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -51,9 +55,11 @@ public class Model {
     public Category getCategory() {
         return category;
     }
+
     public void setCategory(Category category) {
         this.category = category;
     }
+
     public String getImageUrl() {
         return imageUrl;
     }
@@ -61,9 +67,11 @@ public class Model {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
+
     public int getStartYear() {
         return startYear;
     }
+
     public void setStartYear(int startYear) {
         this.startYear = startYear;
     }
@@ -71,9 +79,11 @@ public class Model {
     public int getEndYear() {
         return endYear;
     }
+
     public void setEndYear(int endYear) {
         this.endYear = endYear;
     }
+
     public LocalDateTime getCreated() {
         return created;
     }
@@ -81,9 +91,11 @@ public class Model {
     public void setCreated(LocalDateTime created) {
         this.created = created;
     }
+
     public LocalDateTime getModified() {
         return modified;
     }
+
     public void setModified(LocalDateTime modified) {
         this.modified = modified;
     }
@@ -91,6 +103,7 @@ public class Model {
     public Brand getBrand() {
         return brand;
     }
+
     public void setBrand(Brand brand) {
         this.brand = brand;
     }
