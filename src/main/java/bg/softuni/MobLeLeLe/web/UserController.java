@@ -12,17 +12,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
     private final UserService userService;
 
-    public UserController(UserService userService){
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
+    @GetMapping("/login")
+    public String login() {
+        return "auth-login";
+    }
+
     @GetMapping("/register")
-    public String register(){
+    public String register() {
         return "auth-register";
     }
 
     @PostMapping("/register")
-    public String register(UserRegistrationDTO userRegistrationDTO){
+    public String register(UserRegistrationDTO userRegistrationDTO) {
 
         userService.registerUser(userRegistrationDTO);
 
