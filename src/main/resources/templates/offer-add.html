@@ -71,6 +71,7 @@
     <form
         th:action="@{/offers/add}"
         th:method="post"
+        th:object="${addOfferDTO}"
           class="main-form mx-auto col-md-8 d-flex flex-column justify-content-center">
         <div class="row">
 
@@ -97,8 +98,9 @@
         </div>
         <div class="row">
             <div class="form-group col-md-6 mb-3">
-                <label class="text-center text-white font-weight-bold" for="engine">Engine</label>
-                <select id="engine" name="engine" class="form-control">
+                <label class="text-center text-white font-weight-bold" th:for="engine">Engine</label>
+                <select th:field="*{engine}"
+                        class="form-control">
                     <option value="">- Select engine type -</option>
                     <option th:each="type:${allEngineTypes}"
                     th:value="${type}"
@@ -143,9 +145,9 @@
         </div>
 
         <div class="form-group">
-            <label class="text-white font-weight-bold" for="description">Description</label>
+            <label class="text-white font-weight-bold" th:for="description">Description</label>
             <textarea
-                    id="description"
+                    th:field="*{description}"
                     type="textarea"
                     class="form-control"
                     rows="3"
