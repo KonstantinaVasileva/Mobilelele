@@ -1,6 +1,7 @@
 package bg.softuni.MobLeLeLe.service.impl;
 
 import bg.softuni.MobLeLeLe.model.dto.AddOfferDTO;
+import bg.softuni.MobLeLeLe.model.dto.OfferDetailDTO;
 import bg.softuni.MobLeLeLe.model.entity.Offer;
 import bg.softuni.MobLeLeLe.model.repository.OfferRepository;
 import bg.softuni.MobLeLeLe.service.OfferService;
@@ -21,12 +22,27 @@ public class OfferServiceImpl implements OfferService {
         offerRepository.save(offer);
     }
 
+    @Override
+    public OfferDetailDTO getOfferById(Long id) {
+        return offerRepository.findById(id)
+                .map(OfferServiceImpl::mapToOfferDetailDTO)
+                .orElseThrow();
+    }
+
+    private static OfferDetailDTO mapToOfferDetailDTO(Offer offer) {
+        return new OfferDetailDTO(
+                offer.getId(),
+                offer.getDescription(),
+                offer.getMileage(),
+                offer.getEngine()
+        );
+    }
+
     private static Offer mapToOffer(AddOfferDTO addOfferDTO) {
-//        Offer offer = new Offer();
-//        offer.setDescription(addOfferDTO.description());
-//        offer.setEngine(addOfferDTO.engine());
+
         return new Offer()
                 .setDescription(addOfferDTO.description())
-                .setEngine(addOfferDTO.engine());
+                .setEngine(addOfferDTO.engine())
+                .setMileage(addOfferDTO.mileage());
     }
 }
