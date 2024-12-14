@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/offers")
 public class OfferController {
 
     private final OfferService offerService;
@@ -17,7 +19,7 @@ public class OfferController {
         this.offerService = offerService;
     }
 
-    @GetMapping("/offers/add")
+    @GetMapping("/add")
     public String addOffer(Model model) {
         if (!model.containsAttribute("addOfferDTO")) {
             model.addAttribute("addOfferDTO", AddOfferDTO.empty());
@@ -27,7 +29,7 @@ public class OfferController {
         return "offer-add";
     }
 
-    @PostMapping("/offers/add")
+    @PostMapping("/add")
     public String createOffer(AddOfferDTO addOfferDTO) {
 
         offerService.createOffer(addOfferDTO);

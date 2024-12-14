@@ -98,8 +98,9 @@
         </div>
         <div class="row">
             <div class="form-group col-md-6 mb-3">
-                <label class="text-center text-white font-weight-bold" for="engine">Engine</label>
-                <select id="engine" name="engine" class="form-control">
+                <label class="text-center text-white font-weight-bold" th:for="engine">Engine</label>
+                <select th:field="*{engine}"
+                        class="form-control">
                     <option value="">- Select engine type -</option>
                     <option th:each="type:${allEngineTypes}"
                     th:value="${type}"

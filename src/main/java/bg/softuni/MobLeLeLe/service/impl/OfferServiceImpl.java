@@ -22,9 +22,11 @@ public class OfferServiceImpl implements OfferService {
     }
 
     private static Offer mapToOffer(AddOfferDTO addOfferDTO) {
-        Offer offer = new Offer();
-        offer.setDescription(addOfferDTO.description());
-        offer.setEngine(addOfferDTO.engine());
-        return offer;
+//        Offer offer = new Offer();
+//        offer.setDescription(addOfferDTO.description());
+//        offer.setEngine(addOfferDTO.engine());
+        return new Offer()
+                .setDescription(addOfferDTO.description())
+                .setEngine(addOfferDTO.engine());
     }
 }
