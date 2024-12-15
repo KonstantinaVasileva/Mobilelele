@@ -84,7 +84,7 @@
                     </optgroup>
                 </select>
                 <p class="errors alert alert-danger">
-                    Vechicle model is required.
+                    Vehicle model is required.
                 </p>
             </div>
             <div class="form-group col-md-6 mb-3">
@@ -155,10 +155,15 @@
                     type="textarea"
                     class="form-control"
                     rows="3"
-                    placeholder="Description"></textarea>
+                    placeholder="Description">
+            </textarea>
             <p class="invalid-feedback errors alert alert-danger">
                 Description is required and must be between 3 and 2000 characters long.
             </p>
+            <small 
+                   th:errors="*{description}"
+                   class="text-danger"> Description error
+            </small>
         </div>
         <div class="form-group">
             <label class="text-white font-weight-bold" for="imageUrl">Image URL</label>

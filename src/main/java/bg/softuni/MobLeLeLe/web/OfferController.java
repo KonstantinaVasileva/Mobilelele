@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -22,13 +23,18 @@ public class OfferController {
         this.offerService = offerService;
     }
 
+    @ModelAttribute("allEngineTypes")
+    public Engine[] getAllEngineTypes() {
+        return Engine.values();
+    }
+
     @GetMapping("/add")
     public String addOffer(Model model) {
         if (!model.containsAttribute("addOfferDTO")) {
             model.addAttribute("addOfferDTO", AddOfferDTO.empty());
         }
 
-        model.addAttribute("allEngineTypes", Engine.values());
+       // model.addAttribute("allEngineTypes", Engine.values());
         return "offer-add";
     }
 
