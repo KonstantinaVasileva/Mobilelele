@@ -17,9 +17,10 @@ public class OfferServiceImpl implements OfferService {
     }
 
     @Override
-    public void createOffer(AddOfferDTO addOfferDTO) {
+    public long createOffer(AddOfferDTO addOfferDTO) {
         Offer offer = mapToOffer(addOfferDTO);
         offerRepository.save(offer);
+        return offer.getId();
     }
 
     @Override

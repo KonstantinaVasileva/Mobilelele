@@ -4,6 +4,6 @@ import bg.softuni.MobLeLeLe.model.dto.AddOfferDTO;
 import bg.softuni.MobLeLeLe.model.dto.OfferDetailDTO;
 
 public interface OfferService {
-    void createOffer(AddOfferDTO addOfferDTO);
+    long createOffer(AddOfferDTO addOfferDTO);
     OfferDetailDTO getOfferById(Long id);
 }
