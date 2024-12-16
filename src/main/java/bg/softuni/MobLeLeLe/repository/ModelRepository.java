@@ -1,4 +1,4 @@
-package bg.softuni.MobLeLeLe.model.repository;
+package bg.softuni.MobLeLeLe.repository;
 
 import bg.softuni.MobLeLeLe.model.entity.Model;
 import org.springframework.data.jpa.repository.JpaRepository;

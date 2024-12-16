@@ -3,7 +3,7 @@ package bg.softuni.MobLeLeLe.service.impl;
 import bg.softuni.MobLeLeLe.model.dto.AddOfferDTO;
 import bg.softuni.MobLeLeLe.model.dto.OfferDetailDTO;
 import bg.softuni.MobLeLeLe.model.entity.Offer;
-import bg.softuni.MobLeLeLe.model.repository.OfferRepository;
+import bg.softuni.MobLeLeLe.repository.OfferRepository;
 import bg.softuni.MobLeLeLe.service.OfferService;
 import org.springframework.stereotype.Service;
 
