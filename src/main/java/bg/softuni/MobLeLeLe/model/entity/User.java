@@ -114,4 +114,19 @@ public class User {
     public void setModified(LocalDateTime modified) {
         this.modified = modified;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                ", username='" + username + '\'' +
+                ", password='" + (password == null ? "N/A" : "[PROVIDED]") + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", isActive=" + isActive +
+                ", userRole=" + userRole +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", created=" + created +
+                ", modified=" + modified +
+                '}';
+    }
 }
