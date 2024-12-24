@@ -12,7 +12,7 @@ spring:
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    database-platform: org.hibernate.dialect.MySQLDialect  # MySQL dialect
+    database-platform: org.hibernate.dialect.MySQLDialect
     defer-datasource-initialization: true
     properties:
       hibernate:
