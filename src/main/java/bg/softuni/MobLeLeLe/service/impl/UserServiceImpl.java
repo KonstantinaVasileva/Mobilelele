@@ -39,11 +39,6 @@ public class UserServiceImpl implements UserService {
 
         User user = userRepository.findByUsername(userLoginDTO.username()).orElse(null);
 
-        List<User> all = userRepository.findAll();
-        for (User user1 : all) {
-            System.out.println(user1.getUsername());
-        }
-
         if (userLoginDTO.password() == null ||
                 user == null ||
                 user.getPassword() == null) {
@@ -60,6 +55,11 @@ public class UserServiceImpl implements UserService {
         }
 
         return false;
+    }
+
+    @Override
+    public void logoutUser() {
+        currentUser.clean();
     }
 
     private User map(UserRegistrationDTO userRegistrationDTO) {

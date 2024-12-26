@@ -7,6 +7,8 @@ import bg.softuni.MobLeLeLe.repository.OfferRepository;
 import bg.softuni.MobLeLeLe.service.OfferService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class OfferServiceImpl implements OfferService {
 
@@ -29,6 +31,19 @@ public class OfferServiceImpl implements OfferService {
                 .map(OfferServiceImpl::mapToOfferDetailDTO)
                 .orElseThrow();
     }
+
+    @Override
+    public List<OfferDetailDTO> getAllOffers() {
+        return offerRepository.findAll()
+                .stream().map(OfferServiceImpl::mapToOfferDetailDTO)
+                .toList();
+    }
+
+    @Override
+    public void deleteOfferById(Long id) {
+        offerRepository.deleteById(id);
+    }
+
 
     private static OfferDetailDTO mapToOfferDetailDTO(Offer offer) {
         return new OfferDetailDTO(
